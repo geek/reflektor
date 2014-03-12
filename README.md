@@ -3,6 +3,8 @@ reflektor
 
 Hapi plugin for logging stdout/stderr to browser console
 
+[![Build Status](https://travis-ci.org/wpreul/reflektor.png)](https://travis-ci.org/wpreul/reflektor)
+
 ## Install
 
 ```bash

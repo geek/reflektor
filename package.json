@@ -1,0 +1,30 @@
+{
+  "name": "reflektor",
+  "version": "0.0.1",
+  "description": "Hapi plugin for logging stdout/stderr to browser console",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test-cov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wpreul/reflektor.git"
+  },
+  "keywords": [
+    "hapi"
+  ],
+  "author": "Wyatt Preul <wpreul@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wpreul/reflektor/issues"
+  },
+  "homepage": "https://github.com/wpreul/reflektor",
+  "dependencies": {
+    "ws": "0.4.x",
+    "hoek": "1.x.x"
+  },
+  "devDependencies": {
+    "lab": "1.x.x",
+    "hapi": "2.x.x"
+  }
+}

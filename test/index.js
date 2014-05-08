@@ -2,6 +2,7 @@
 
 var Lab = require('lab');
 var Hapi = require('hapi');
+var Ws = require('ws');
 
 
 // Declare internals
@@ -48,6 +49,58 @@ describe('reflektor', function () {
 
                 expect(res.result).to.contain('WebSocket');
                 done();
+            });
+        };
+
+        startServer();
+    });
+
+    it('accepts connection on websocket port and logs errors', function (done) {
+
+        var startServer = function () {
+
+            var server = new Hapi.Server();
+            server.pack.require('../', { host: '0.0.0.0' }, function (err) {
+
+                expect(err).to.not.exist;
+                requestTerminal(server);
+            });
+        };
+
+        var requestTerminal = function (server) {
+
+            server.inject({ url: '/debug/terminal'}, function (res) {
+
+                var port = res.result.match(/var port = (\d+)/)[1];
+                var ws = new Ws('ws://localhost:' + port);
+
+                var ct = 0;
+                ws.on('message', function (data, flags) {
+
+                    if (ct === 0) {
+                        expect(data).to.equal('Welcome');
+                        ct++;
+                        return;
+                    }
+                    else {
+                        expect(data).to.equal('From Test');
+
+                        ws.close();
+                    }
+                });
+
+                ws.once('open', function () {
+
+                    setTimeout(function () {
+
+                        process.stderr.write('From Test');
+                    }, 50);
+                });
+
+                ws.once('close', function () {
+
+                    done();
+                });
             });
         };
 

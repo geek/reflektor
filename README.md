@@ -21,7 +21,6 @@ var server = new Hapi.Server();
 
 var options = {
     endpoint: '/debug/terminal',
-    host: 'localhost',
     port: 0
 };
 server.require('reflektor', options, function (err) {

@@ -5,7 +5,7 @@ Hapi plugin for logging stdout/stderr to browser console
 
 [![Build Status](https://travis-ci.org/wpreul/reflektor.png)](https://travis-ci.org/wpreul/reflektor)
 
-[![NPM](https://nodei.co/npm/reptile.png?downloads=true&stars=true)](https://nodei.co/npm/reptile/)
+[![NPM](https://nodei.co/npm/reflektor.png?downloads=true&stars=true)](https://nodei.co/npm/reflektor/)
 
 ## Install
 

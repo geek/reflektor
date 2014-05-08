@@ -14,3 +14,9 @@ server.pack.require('../', function (err) {
         console.log('Example server running at: http://localhost:8080/debug/terminal');
     });
 });
+
+
+server.on('request', function (request) {
+
+    process.stdout.write('Request for ' + JSON.stringify(request.url, null, '    '));
+});

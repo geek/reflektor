@@ -7,12 +7,6 @@ Hapi plugin for logging stdout/stderr to browser console
 
 [![NPM](https://nodei.co/npm/reflektor.png?downloads=true&stars=true)](https://nodei.co/npm/reflektor/)
 
-## Install
-
-```bash
-$ npm install reflektor
-```
-
 
 ## Require in Hapi
 

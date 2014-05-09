@@ -16,9 +16,9 @@ var Hapi = require('hapi');
 var server = new Hapi.Server();
 
 var options = {
-    endpoint: '/debug/terminal',
-    port: 0
+    endpoint: '/debug/terminal'
 };
+
 server.require('reflektor', options, function (err) {
 ...
 ```

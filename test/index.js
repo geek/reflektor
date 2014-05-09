@@ -35,7 +35,7 @@ describe('reflektor', function () {
 
         var startServer = function () {
 
-            var server = new Hapi.Server();
+            var server = new Hapi.Server(0);
             server.pack.require('../', {}, function (err) {
 
                 expect(err).to.not.exist;
@@ -59,11 +59,14 @@ describe('reflektor', function () {
 
         var startServer = function () {
 
-            var server = new Hapi.Server();
-            server.pack.require('../', { host: '0.0.0.0' }, function (err) {
+            var server = new Hapi.Server(0);
+            server.pack.require('../', function (err) {
 
                 expect(err).to.not.exist;
-                requestTerminal(server);
+                server.start(function () {
+
+                    requestTerminal(server);
+                });
             });
         };
 
@@ -71,8 +74,7 @@ describe('reflektor', function () {
 
             server.inject({ url: '/debug/terminal'}, function (res) {
 
-                var port = res.result.match(/var port = (\d+)/)[1];
-                var ws = new Ws('ws://localhost:' + port);
+                var ws = new Ws('ws://localhost:' + server.info.port + '/reflektor');
 
                 var ct = 0;
                 ws.on('message', function (data, flags) {

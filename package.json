@@ -1,6 +1,6 @@
 {
   "name": "reflektor",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Hapi plugin for logging stdout/stderr to browser console",
   "main": "index.js",
   "scripts": {
@@ -24,10 +24,10 @@
   "homepage": "https://github.com/wpreul/reflektor",
   "dependencies": {
     "ws": "0.4.x",
-    "hoek": "1.x.x"
+    "hoek": "2.x.x"
   },
   "devDependencies": {
     "lab": "3.x.x",
-    "hapi": "2.x.x"
+    "hapi": "4.x.x"
   }
 }

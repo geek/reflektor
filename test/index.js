@@ -3,6 +3,7 @@
 var Lab = require('lab');
 var Hapi = require('hapi');
 var Ws = require('ws');
+var Reflektor = require('../');
 
 
 // Declare internals
@@ -24,7 +25,7 @@ describe('reflektor', function () {
     it('can be required by hapi', function (done) {
 
         var server = new Hapi.Server();
-        server.pack.require('../', {}, function (err) {
+        server.pack.register(Reflektor, function (err) {
 
             expect(err).to.not.exist;
             done();
@@ -36,7 +37,7 @@ describe('reflektor', function () {
         var startServer = function () {
 
             var server = new Hapi.Server(0);
-            server.pack.require('../', {}, function (err) {
+            server.pack.register({ plugin: Reflektor, options: {} }, function (err) {
 
                 expect(err).to.not.exist;
                 requestTerminal(server);
@@ -60,7 +61,7 @@ describe('reflektor', function () {
         var startServer = function () {
 
             var server = new Hapi.Server(0);
-            server.pack.require('../', function (err) {
+            server.pack.register({ plugin: Reflektor, options: {} }, function (err) {
 
                 expect(err).to.not.exist;
                 server.start(function () {

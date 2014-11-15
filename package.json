@@ -28,6 +28,6 @@
   },
   "devDependencies": {
     "lab": "3.x.x",
-    "hapi": "5.x.x"
+    "hapi": "7.x.x"
   }
 }

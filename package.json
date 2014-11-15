@@ -1,6 +1,6 @@
 {
   "name": "reflektor",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Hapi plugin for logging stdout/stderr to browser console",
   "main": "index.js",
   "scripts": {
